@@ -1,0 +1,5 @@
+logs/ls2/*.log
+logs/nginx/*.log
+data/postgres
+static/**/
+secrets/dev

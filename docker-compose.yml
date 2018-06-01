@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nginx:
+    restart: unless-stopped
+    image: nginx
+    container_name: ls2_nginx
+    depends_on:
+      - ls2
+
+  ls2:
+    restart: unless-stopped
+    image: curiosityhealth/ls2:1.6
+    container_name: ls2_web
+    command: bash -c "gunicorn LS2.wsgi -b 0.0.0.0:8000"
+    expose:
+      - "8000"
