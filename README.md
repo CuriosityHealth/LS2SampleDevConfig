@@ -1,6 +1,6 @@
 #LS2 Sample Development Config
 
-Sample configuration suitable for local mHealth app development using [Lightweight Study Server] (https://github.com/CuriosityHealth/LS2) as a backend.
+Sample configuration suitable for local mHealth app development using [Lightweight Study Server](https://github.com/CuriosityHealth/LS2) as a backend.
 
 ## Prerequisites
 
@@ -91,9 +91,10 @@ From the Study detail page, you can view study data as well as add participants.
 
 From the Add Participants page, enter a username, participant label, and password.
 
-You can now authenticate with the [Participant API] (https://documenter.getpostman.com/view/753798/ls2-participant-api/RW8Aoonk) using the username and password that you've created.
+You can now authenticate with the [Participant API](https://documenter.getpostman.com/view/753798/ls2-participant-api/RW8Aoonk) using the username and password that you've created.
 
 ## SDKs
 
-You can find the iOS SDK [here] (https://github.com/CuriosityHealth/LS2SDK-iOS).
-You can find the Android SDK [here] (https://github.com/CuriosityHealth/LS2SDK-Android).
+You can find the iOS SDK [here](https://github.com/CuriosityHealth/LS2SDK-iOS).
+
+You can find the Android SDK [here](https://github.com/CuriosityHealth/LS2SDK-Android).
