@@ -1,6 +1,6 @@
 # LS2 Sample Development Config
 
-Sample configuration suitable for local mHealth app development using [Lightweight Study Server](https://github.com/CuriosityHealth/LS2) as a backend. 
+Sample configuration suitable for local mHealth app development using [Lightweight Study Server](https://github.com/CuriosityHealth/LS2) as a backend. For more information about LS2, see the [explainer deck](https://docs.google.com/presentation/d/1xu0x8mmgic1tv5UMyE5cuKPapl_Wy482fjie0Z9NCJ0/edit#slide=id.p).
 
 **THIS CONFIGURATION IS INTENDED FOR LOCAL DEVELOPMENT AND SHOULD NOT BE USED IN A PRODUCTION SETTING**
 
