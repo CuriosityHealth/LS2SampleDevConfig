@@ -1,12 +1,40 @@
 # LS2 Sample Development Config
 
-Sample configuration suitable for local mHealth app development using [Lightweight Study Server](https://github.com/CuriosityHealth/LS2) as a backend.
+Sample configuration suitable for local mHealth app development using [Lightweight Study Server](https://github.com/CuriosityHealth/LS2) as a backend. 
+
+**THIS CONFIGURATION SHOULD NOT BE USED IN A PRODUCTION SETTING**
+
+If you would like more information about using LS2 in production, please contact our team at info(at)curiosityhealth(dot)com.
 
 ## Prerequisites
 
+[Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installed
+
 ## Configuration
 
+The current configuration expects that files similar to those in secrets/sample are included in secrets/dev. This includes:
+
+* django_config.txt - configuration settings for the LS2 Django application **MORE INFO COMING SOON**
+* django_secret_key.txt - the secret key used by Django (see [here](https://docs.djangoproject.com/en/2.0/ref/settings/#secret-key) for more information )
+* fernet_keys.txt - We use [django-fernet-fields](https://django-fernet-fields.readthedocs.io/en/latest/) to encrypt sensitive portions of each datapoint. This file should include a list of [keys](https://django-fernet-fields.readthedocs.io/en/latest/#keys) to use. **NOTE:** during startup, the list is reversed, meaning that new datapoints will be encrypted with the **last** key in the list and that new keys should be added to the end of the list. 
+* databases.json - [Django database configuration](https://docs.djangoproject.com/en/2.0/ref/settings/#databases)
+
+In short, you should be able to make a copy of secret/sample and put it in secrets/dev and the server should start without any trouble. However, deployments using this configuration should be used for **DEVELOPMEMT ONLY** and should never include any participant data.
+
+The docker-compose.override.yml also expects that the following environment variables be exported:
+* DATABASE_NAME
+* DATABASE_USER
+* DATABASE_PASSWORD
+
+These must match the values in databases.json. docker-compose looks for environment files in .env in the current directory, so for convience you may just rename sample.env -> .env.
+
 ## Running
+
+You can start the containers by running the following docker compose command
+
+```
+docker-compose up -d
+```
 
 ## Bootstrapping the server
 
