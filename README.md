@@ -45,7 +45,7 @@ exit
 
 ## Configuration via the Admin console
 
-Browse to the admin console (if you are using the default settings, click [here](http://localhost:800/admin) )
+Browse to the admin console (if you are using the default settings, click [here](http://localhost:8000/admin) )
 
 Enter the credentials for the superuser you created earlier.
 
@@ -79,7 +79,7 @@ On the Add Researcher page, select the user account that you just created, as we
 
 Make sure you're logged out of the admin console (you can do so by selecting *Log Out* in the top right corner of the admin console.)
 
-Browse to the study management console (if you are using the default settings, click [here](http://localhost:800/management) )
+Browse to the study management console (if you are using the default settings, click [here](http://localhost:8000/management) )
 
 Enter the username and password for the user account that you just created.
 
