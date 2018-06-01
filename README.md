@@ -2,7 +2,7 @@
 
 Sample configuration suitable for local mHealth app development using [Lightweight Study Server](https://github.com/CuriosityHealth/LS2) as a backend. 
 
-**THIS CONFIGURATION SHOULD NOT BE USED IN A PRODUCTION SETTING**
+**THIS CONFIGURATION IS INTENDED FOR LOCAL DEVELOPMENT AND SHOULD NOT BE USED IN A PRODUCTION SETTING**
 
 If you would like more information about using LS2 in production, please contact our team at info(at)curiosityhealth(dot)com.
 
