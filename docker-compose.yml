@@ -2,15 +2,40 @@ version: '2'
 services:
   nginx:
     restart: unless-stopped
-    image: nginx
+    image: curiosityhealth/nginx-logrotate:1.15
     container_name: ls2_nginx
     depends_on:
-      - ls2
+      - study_management_portal
+      - admin_portal
+      - participant_api
 
-  ls2:
+  study_management_portal:
+      restart: unless-stopped
+      image: curiosityhealth/ls2:1.10
+      container_name: ls2_study_management
+      command: bash -c "gunicorn LS2.wsgi -b 0.0.0.0:8000"
+      expose:
+        - "8000"
+
+  admin_portal:
     restart: unless-stopped
-    image: curiosityhealth/ls2:1.6
-    container_name: ls2_web
+    image: curiosityhealth/ls2:1.10
+    container_name: ls2_admin
     command: bash -c "gunicorn LS2.wsgi -b 0.0.0.0:8000"
     expose:
       - "8000"
+
+  participant_api:
+    restart: unless-stopped
+    image: curiosityhealth/ls2:1.10
+    container_name: ls2_participant_api
+    command: bash -c "gunicorn LS2.wsgi -b 0.0.0.0:8000"
+    expose:
+      - "8000"
+
+# networks:
+#   default:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.17.0.0/24

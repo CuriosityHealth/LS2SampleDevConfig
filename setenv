@@ -1,0 +1,22 @@
+#!/bin/sh
+# this creates symlinks to set up your environment
+# docker-compose loads the .env file
+# this assumes that you have 2 .env files and 4 docker-compose files:
+# dev.env, docker-compose.dev.yml
+# prod.env, docker-compose.prod.yml
+read -p 'Which environment ( (D)ev | (P)rod ): ' answer
+
+case "$answer" in
+  [Dd]* )
+      env=dev;;
+  [Pp]* )
+      env=prod;;
+  * )
+      printf "%s\n" 'Invalid selection: Answer either “D” or “P”.'
+      exit 1;;
+esac
+
+printf "%s\n" "Setting env to $env"
+ln -sf docker-compose.$env.yml docker-compose.override.yml
+# ln -sf $env.env .env
+exit 0
