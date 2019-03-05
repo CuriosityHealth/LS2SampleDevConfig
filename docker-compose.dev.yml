@@ -1,6 +1,10 @@
 version: '2'
 services:
   nginx:
+    depends_on:
+      - study_management_portal
+      - admin_portal
+      - participant_api
     ports:
       - "8000:8000"
       - "8001:8001"
@@ -8,6 +12,8 @@ services:
     volumes:
       - ./nginx/dev:/etc/nginx/conf.d
       - ./logs/nginx:/var/log/nginx
+      - ./static:/static
+    
 
   study_management_portal:
     command: bash -c "sleep 10; python manage.py runserver 0.0.0.0:8000"
@@ -17,6 +23,7 @@ services:
       - ./logs/study_managment_portal:/logs
       - ./secrets/dev/config.json:/etc/ls2/settings/config.json:ro 
       - ./secrets/dev/local_config.json:/etc/ls2/settings/local_config.json:ro
+      - ./static:/static
     environment:
       LS2_DEBUG: 'true'
       APP_CONFIG_ID: 'study_management_portal'
@@ -29,6 +36,7 @@ services:
       - ./logs/admin_portal:/logs
       - ./secrets/dev/config.json:/etc/ls2/settings/config.json:ro 
       - ./secrets/dev/local_config.json:/etc/ls2/settings/local_config.json:ro
+      - ./static:/static
     environment:
       LS2_DEBUG: 'true'
       APP_CONFIG_ID: 'admin_portal'
@@ -41,6 +49,7 @@ services:
       - ./logs/participant_api:/logs
       - ./secrets/dev/config.json:/etc/ls2/settings/config.json:ro 
       - ./secrets/dev/local_config.json:/etc/ls2/settings/local_config.json:ro
+      - ./static:/static
     environment:
       LS2_DEBUG: 'true'
       APP_CONFIG_ID: 'participant_api'
@@ -56,7 +65,7 @@ services:
       POSTGRES_USER:  ls2_dev_user
       POSTGRES_PASSWORD: ls2_dev_password
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./data/postgresql:/var/lib/postgresql/data
 
   pgadmin:
     container_name: ls2_pgadmin
